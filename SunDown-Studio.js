@@ -9,8 +9,9 @@ let page5 = document.getElementById("page5")
 let mouse = document.getElementById("mouse")
 let menubtn = document.querySelector(".menubtn")
 let cancelbtn = document.querySelector("#cancel")
-console.log(menubtn);
 let wWidth = screen.width
+let loaderList = ["ENVIRONMENT", "CONTENT", "EXPERIENCES"]
+let counter = 0
 workElements.addEventListener("mouseenter", () => {
     fixedImg.style.display = "block"
     console.log("enter");
@@ -39,15 +40,29 @@ element.forEach(function (e) {
 });
 menubtn.addEventListener("click", function () {
     gsap.to("#menuTab", {
-        display:"block",
+        display: "block",
         top: "0%"
     })
 })
 cancelbtn.addEventListener("click", function () {
     gsap.to("#menuTab", {
-        top: "-100%"
+        top: "-150%"
     })
 })
+
+let loaderTime = setInterval(() => {
+    if (counter == 2) {
+        gsap.to("#loader", {
+            top: "-150%",
+        })
+        clearInterval(loaderTime)
+    }
+    else {
+        console.log(loaderList[counter]);
+        document.getElementById("loader-list").innerText = loaderList[counter]
+        counter++
+    }
+}, 1000);
 
 if (wWidth > 500) {
     var swiper = new Swiper(".mySwiper", {
@@ -135,18 +150,6 @@ heading[2].addEventListener("click", function () {
     })
 })
 
-// page5.addEventListener("mouseenter", function (e) {
-//     gsap.from("#mouse", {
-//         display: "flex",
-//         scale: 0,
-//         opacity: 0
-//     })
-//     gsap.to("#mouse", {
-//         display: "flex",
-//         scale: 1,
-//         opacity: 1
-//     })
-// })
 page5.addEventListener("mousemove", function (e) {
     gsap.to("#mouse", {
         display: "flex",
@@ -167,7 +170,7 @@ var tl = gsap.timeline()
 
 tl.from("nav img", {
     y: -100,
-    delay: 1,
+    delay: 3.5,
     stagger: .5,
     duration: .5,
 })
@@ -189,9 +192,13 @@ tl.from("#page1 #box #right", {
     x: 100,
     duration: .5,
 })
-tl.from("#page1 #shape-box", {
+tl.from("#page1 video", {
     opacity: 0,
     scale: 0,
+    duration: .5,
+})
+tl.from("#page1 #shape-box", {
+    right:"-100%",
     duration: .5,
 })
 
