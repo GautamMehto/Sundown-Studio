@@ -43,8 +43,11 @@
 
 @media screen and (max-width:650px) {
     #fixed-image {
-        width: 35%;
+        width: 50vw;
+        height: 40vh;
         left: 45%;
+        top: 45%;
+
     }
 
     nav img {
@@ -316,7 +319,7 @@
         height: 80vw;
         left: 15%;
     }
-
+    
     #work-elements .element h2 {
         font-size: 1.5rem;
     }
