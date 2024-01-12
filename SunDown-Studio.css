@@ -28,6 +28,25 @@ body {
     position: relative;
 }
 
+#loader{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+#loader-list{
+    width: max-content;
+    font-size: 6vw;
+    color: transparent;
+    background: linear-gradient(to right ,orange ,orangered);
+    -webkit-background-clip: text;
+}
 #page1 {
     width: 100%;
     height: max-content;
@@ -123,7 +142,7 @@ nav #menu-list {
     height: 100vh;
     background-color: rgba(128, 128, 128, 0.507);
     position: fixed;
-    top: -100%;  
+    top: -150%;  
     left: 0;
     z-index: 10;
     display: none;
@@ -456,10 +475,6 @@ nav #menu-list {
     object-fit: cover;
     display: none;
     border-radius: 15px;
-}
-
-.page3-IV {
-    display: none;
 }
 
 #work-elements {
